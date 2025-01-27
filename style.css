@@ -1,101 +1,135 @@
+/* Global */
 body {
-    font-family: 'Arial', sans serif;
-    background: #f3f4f6;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    margin: 0; /* Enlève les marges par défaut du body */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Définit la police du texte */
+    background: linear-gradient(135deg, #c3d8f2, #e7f1fc); /* Dégradé de fond pour le body */
+    display: flex; /* Utilisation de Flexbox pour organiser le contenu */
+    justify-content: center; /* Centre horizontalement les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    height: 100vh; /* La hauteur de la page prend toute la hauteur de la fenêtre */
 }
 
-
+/* Container */
 .container {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    display: flex;  /* Affiche les éléments en ligne */
+    gap: 20px; /* Espace entre la calculatrice et l'historique */
+    align-items: flex-start; /* Aligne les éléments en haut */
+    justify-content: center; /* Centre le contenu horizontalement */
 }
 
-.calculator{
-    background: #fff;
-    padding: 20px;
-    border-radius: 15 px;
-    box-shadow: 0 10px 20px rgba(0,0,0, 0.1);
-    width: 300px;
-}
-
-.display{
-    margin-bottom: 20px;
+/* Section Calculatrice */
+.calculator {
+    background: linear-gradient(180deg, #e9ecef, #cfd3d7); /* Dégradé de fond pour la calculatrice */
+    border: 2px solid #a9a9a9; /* Bordure grise autour de la calculatrice */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Ombre portée autour de la calculatrice */
+    padding: 20px; /* Espacement interne */
+    width: 350px; /* Largeur de la calculatrice */
 }
 
 .display input {
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: #f3f3f3;
+    width: 100%; /* Largeur maximale de l'entrée */
+    height: 50px; /* Hauteur de l'écran d'affichage */
+    font-size: 1.5rem; /* Taille du texte */
+    text-align: right; /* Alignement du texte à droite */
+    border: none; /* Pas de bordure */
+    padding: 5px; /* Espacement interne */
+    background: #ffffff; /* Fond blanc */
+    color: #333; /* Texte en gris foncé */
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1); /* Ombre interne légère */
+    margin-bottom: 10px; /* Marge en bas */
 }
 
-.buttons{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 10px;
+.buttons {
+    display: grid; /* Utilisation de Grid pour afficher les boutons */
+    grid-template-columns: repeat(4, 1fr); /* Crée une grille avec 4 colonnes égales */
+    gap: 10px; /* Espace entre les boutons */
 }
 
 .btn {
-    font-size: 1.2rem;
-    padding: 15px;
-    border: none;
-    border-radius: 10px
-    background: #4caf50;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s ease;
+    height: 50px; /* Hauteur des boutons */
+    font-size: 1.2rem; /* Taille du texte des boutons */
+    border: 1px solid #a9a9a9; /* Bordure grise autour des boutons */
+    background: linear-gradient(180deg, #ffffff, #d6d9dc); /* Dégradé de fond */
+    border-radius: 5px; /* Coins arrondis pour les boutons */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), inset -1px -1px 2px rgba(255, 255, 255, 0.7); /* Ombre externe et interne */
+    cursor: pointer; /* Curseur en forme de main pour indiquer que c'est cliquable */
+    color: #333; /* Texte des boutons en gris foncé */
+    transition: background 0.3s, transform 0.1s; /* Transition pour le changement de fond et de transformation */
 }
 
-.btn:hover {
-    background: #45a049;
+/* Boutons numériques (0-9) */
+.btn.number {
+    background: linear-gradient(180deg, #f0f0f0, #d6d9dc); /* Dégradé de fond des boutons numériques */
 }
 
-.btn:nth-child(4n){
-    background: #ff5722;
+.btn.number:hover {
+    background: linear-gradient(180deg, #ddd, #c7cfd2); /* Changement de fond au survol */
 }
 
-.btn:nth-child(4n):hover{
-    background: #e64a19;
+/* Boutons des opérateurs (+, -, *, /) */
+.btn.operator {
+    background: linear-gradient(180deg, #f8c03c, #f1b337); /* Dégradé de fond pour les boutons opérateurs */
+    color: white; /* Texte en blanc */
 }
 
-.history{
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0, 0.1);
-    width: 200px;
-    height: auto;
-    overflow-y: auto;
+.btn.operator:hover {
+    background: linear-gradient(180deg, #f5a800, #f39c12); /* Changement de fond au survol */
+}
+
+/* Bouton de réinitialisation (C) */
+.btn.clear {
+    background: linear-gradient(180deg, #e74c3c, #c0392b); /* Dégradé de fond rouge pour le bouton C */
+    color: white; /* Texte en blanc */
+}
+
+.btn.clear:hover {
+    background: linear-gradient(180deg, #c0392b, #e74c3c); /* Changement de fond au survol */
+}
+
+/* Bouton égal (=) */
+.btn.equal {
+    background: linear-gradient(180deg, #2ecc71, #27ae60); /* Dégradé de fond vert pour le bouton égal */
+    color: white; /* Texte en blanc */
+}
+
+.btn.equal:hover {
+    background: linear-gradient(180deg, #27ae60, #2ecc71); /* Changement de fond au survol */
+}
+
+/* Historique */
+.history {
+    background: #fff; /* Fond blanc pour la section historique */
+    padding: 20px; /* Espacement interne */
+    border-radius: 15px; /* Coins arrondis pour l'historique */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Ombre portée autour de la section historique */
+    width: 250px;  /* Largeur de la section historique */
+    height: auto; /* Hauteur automatique */
+    overflow-y: auto; /* Activation du défilement vertical si nécessaire */
+    max-height: 500px; /* Limite la hauteur de la section historique */
 }
 
 .history h3 {
-    margin: 0 0 10px;
-    font-size: 1.2rem;
-    text-align: center;
-    color: #333;
+    margin: 0 0 10px; /* Marge en bas du titre */
+    font-size: 1.2rem; /* Taille du texte */
+    text-align: center; /* Centre le texte du titre */
+    color: #333; /* Texte du titre en gris foncé */
 }
 
-.history u1 {
-    list-style: none;
-    padding: 0;
-    margin: 0,
+.history ul {
+    list-style: none; /* Supprime les puces des éléments de liste */
+    padding: 0; /* Enlève les espacements internes de la liste */
+    margin: 0; /* Enlève les marges de la liste */
 }
 
-.history li{
-    font-size: 1rem;
-    margin: 5px 0;
-    color: #555;
-    padding: 5px;
-    border-bottom: 1px solid #eee;
+.history li {
+    font-size: 1rem; /* Taille du texte des éléments de l'historique */
+    margin: 5px 0; /* Marge entre les éléments de la liste */
+    color: #555; /* Couleur du texte des éléments de l'historique */
+    padding: 5px; /* Espacement interne des éléments */
+    border-bottom: 1px solid #eee; /* Bordure en bas de chaque élément */
 }
 
 .history li:last-child {
-    border-bottom: none;
+    border-bottom: none; /* Supprime la bordure en bas du dernier élément */
 }
